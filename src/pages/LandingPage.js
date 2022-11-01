@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "../assets/css/landingpage.css";
 import art from "../assets/image/landingpage-art.png";
@@ -16,15 +17,15 @@ const LandingPage = () => {
                   className="img-fluid"
                 />
                 <h1>
-                  <a href="#">BINARGAME</a>
+                  <a className="color">BINARGAME</a>
                 </h1>
               </div>
               <div id="menu" className="col-8 text-uppercase pt-2 pl-5 pr-5">
                 <ul className="d-lg-flex d-md-block justify-content-between">
-                  <li>about</li>
-                  <li>game list</li>
-                  <li>login</li>
-                  <li>register</li>
+                  <li>About</li>
+                  <li>Game List</li>
+                  <li>Login</li>
+                  <li>Register</li>
                 </ul>
               </div>
             </div>
