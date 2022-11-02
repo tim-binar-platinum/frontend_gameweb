@@ -3,11 +3,13 @@ import { useState, forwardRef } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import axios from "axios";
+import { useForm } from "react-hook-form";
 
 export default function Create () {
   const [formInput, setFormInput] = useState({
     email: '',
     username: '',
+    confirm: '',
     password: '',
     birth_place: ''
   })
@@ -17,6 +19,8 @@ export default function Create () {
       [name]: value,
     }));
   };
+
+  const { register, formState: {errors}, handleSubmit } = useForm();
 
   const [gender, setGender] = useState('male')
   function handleSelect(e) {
@@ -53,7 +57,7 @@ export default function Create () {
   const onSubmit = async (e) => {
    e.preventDefault()
    console.log(formInput, dateData, genderData)
-   await axios.post('http://localhost:4000/register', 
+   const response = await axios.post('http://178.128.100.115:4000/register', 
       {
         name: formInput.email,
         username: formInput.username,
@@ -68,7 +72,11 @@ export default function Create () {
       .catch(function (error) {
         console.log(error);
       });
-  }  
+    console.log(response.data.jwt)
+    localStorage.setItem('items', JSON.stringify(response.data.jwt));
+    localStorage.getItem('item')
+  }
+    
 
   return (
     <Container style={{paddingLeft:"10%", paddingRight:"10%"}} className="d-flex flex-column justify-content-center align-items-center">
@@ -77,19 +85,62 @@ export default function Create () {
         <Form onChange={handleChange}>
           <FormGroup className="p-2">
             <Label>Email</Label>
-            <Input type='email' placeholder="email" name="email" value={formInput.email} onChange={handleChange} />
+            <Input 
+            {...register('email', {
+              required: 'This is required',
+              pattern: {value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, message: 'Invalid email address'}
+            })}
+            type='text' 
+            placeholder="example@mail.com" 
+            name="email" 
+            value={formInput.email} 
+            onChange={handleChange} 
+            />
+              {errors.email && errors.email.message}
           </FormGroup>
           <FormGroup className="p-2">
             <Label>Username</Label>
-            <Input type='text' placeholder="username" name="username" value={formInput.username} onChange={handleChange} />
+            <Input 
+            {...register('Username', {
+              required: 'This is required',
+              minLength: { value: 4, message: 'Minimum length should be 4' },
+            })}
+            type='text' 
+            placeholder="username" 
+            name="username" 
+            value={formInput.username} 
+            onChange={handleChange} />
           </FormGroup>
           <FormGroup className="p-2">
             <Label>Password</Label>
-            <Input type='password' placeholder="password" name="password" value={formInput.confirm_password} onChange={handleChange} />
+            <Input
+            {...register('Password', {
+              required: 'This is required',
+              // validate: {value:},
+              minLength: { value: 4, message: 'Minimum length should be 4' },
+            })} 
+            type='password' 
+            placeholder="password" 
+            name="password" 
+            value={formInput.password} 
+            onChange={handleChange} 
+            autoComplete="off"/>
+              {errors.password && errors.password.message}
+              {formInput.password === formInput.confirm? <></> : <>password is not the same</>}
           </FormGroup>
           <FormGroup className="p-2">
             <Label>Confirm Password</Label>
-            <Input type='password' placeholder="confirm password" name="password" value={formInput.password} onChange={handleChange}  />
+            <Input
+            {...register('Confirm Password', {
+              required: 'This is required',
+            })}  
+            type='password' 
+            placeholder="confirm password" 
+            name="confirm_password" 
+            value={formInput.confirm} 
+            onChange={handleChange}  
+            autoComplete="off"
+            />
           </FormGroup>
           <FormGroup className="p-2">
             <Label>Gender</Label>
@@ -116,7 +167,12 @@ export default function Create () {
           </FormGroup>
           <FormGroup className="p-2">
             <Label>Birth Place</Label>
-            <Input type='text' placeholder="birth place" name="birth_place" value={formInput.birth_place} onChange={handleChange}  />
+            <Input 
+            type='text' 
+            placeholder="birth place" 
+            name="birth_place" 
+            value={formInput.birth_place} 
+            onChange={handleChange}  />
           </FormGroup>
           <Container className="d-flex justify-content-center pt-4">
             <Button color="warning" type="submit" onClick={onSubmit}>Submit</Button>
