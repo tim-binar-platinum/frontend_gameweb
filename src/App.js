@@ -1,14 +1,17 @@
-import React from "react";
-
-import "./App.css";
-
-import { Container } from "react-bootstrap";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LandingPage from "./page/LandingPage";
+import Login from "./page/Login";
+import Register from "./page/Register";
 
 function App() {
   return (
-    <Container>
-      <div> Hello World</div>
-    </Container>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<LandingPage />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
