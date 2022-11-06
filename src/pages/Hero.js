@@ -20,7 +20,7 @@ const Hero = () => {
               <Nav.Link href="#faq" className="mx-2">
                 Faq
               </Nav.Link>
-              <Nav.Link href="register" className="mx-2">
+              <Nav.Link href="#" className="mx-2">
                 Profile
               </Nav.Link>
             </Nav>
