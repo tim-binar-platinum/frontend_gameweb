@@ -21,10 +21,7 @@ const Hero = () => {
                 Faq
               </Nav.Link>
               <Nav.Link href="register" className="mx-2">
-                Register
-              </Nav.Link>
-              <Nav.Link href="login" className="mx-2">
-                Login
+                Profile
               </Nav.Link>
             </Nav>
           </Container>
