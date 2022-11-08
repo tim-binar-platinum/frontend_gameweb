@@ -23,6 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "https://pencarikhuntul.lol",
   "eslintConfig": {
     "extends": [
       "react-app",
