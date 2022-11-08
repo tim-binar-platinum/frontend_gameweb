@@ -1,6 +1,7 @@
 import React from "react";
 import "../assets/css/landingpage.css";
 import art from "../assets/image/landingpage-art.png";
+import { Link } from "react-router-dom";
 const LandingPage = () => {
   return (
     <div>
@@ -16,15 +17,15 @@ const LandingPage = () => {
                   className="img-fluid"
                 />
                 <h1>
-                  <a href="#">BINARGAME</a>
+                  <Link href="#">BINARGAME</Link>
                 </h1>
               </div>
               <div id="menu" className="col-8 text-uppercase pt-2 pl-5 pr-5">
                 <ul className="d-lg-flex d-md-block justify-content-between">
-                  <li>about</li>
-                  <li>game list</li>
-                  <li>login</li>
-                  <li>register</li>
+                  <Link>about</Link>
+                  <Link>game list</Link>
+                  <Link to="/login">login</Link>
+                  <Link to="/register">register</Link>
                 </ul>
               </div>
             </div>
@@ -38,7 +39,9 @@ const LandingPage = () => {
                   THE POPULER GAME WEBSITE IN THE WORLD, EASY TO JOIN AND PLAY
                   GAME FROM YOUR DEVICE
                 </p>
-                <button className="rounded-5">PLAY NOW</button>
+                <Link to="/game">
+                  <button className="rounded-5">PLAY NOW</button>
+                </Link>
               </div>
               <div id="art-game" className="col col-1 col-lg-5">
                 <img className="img-fluid pt-5" src={art} alt="" />

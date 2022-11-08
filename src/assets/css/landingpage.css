@@ -4,11 +4,12 @@ navbar h1 a {
     margin-left: 0vw;
 }
 
-navbar ul li {
+navbar ul a {
     list-style: none;
     font-size: 1.7vw;
     font-weight: bold;
     color: #2da0f8;
+    text-decoration: none;
 }
 
 aside p {
@@ -68,7 +69,7 @@ aside button {
         position: relative;
         top: 5vw;
     }
-    navbar ul li {
+    navbar ul a {
         font-size: 4vw;
     }
     navbar h1 a {

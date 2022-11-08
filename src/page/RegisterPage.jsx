@@ -57,14 +57,14 @@ export default function Create () {
   const onSubmit = async (e) => {
    e.preventDefault()
    console.log(formInput, dateData, genderData)
-   const response = await axios.post('http://178.128.100.115:4000/register', 
+   const response = await axios.post('http://localhost:4000/register', 
       {
         name: formInput.email,
         username: formInput.username,
         password: formInput.password,
         dateData: dateData.birth_date,
         birth_place: formInput.birth_place, 
-        gender: gender.select
+        gender: 'male'
       })
       .then(function (response) {
         console.log(response);
@@ -77,7 +77,6 @@ export default function Create () {
     localStorage.getItem('item')
   }
     
-
   return (
     <Container style={{paddingLeft:"10%", paddingRight:"10%"}} className="d-flex flex-column justify-content-center align-items-center">
       <Container className="d-flex justify-content-center h1 pb-3">REGISTER NEW PLAYER</Container>
