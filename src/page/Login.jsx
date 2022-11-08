@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Input from "../components/Input";
 import art from "../assets/image/landingpage-art.png";
 
@@ -23,10 +23,10 @@ const Login = () => {
       .then((res) => res.json())
       .then((st) => {
         console.log(st);
-        if (st.msg == "data tidak ada") {
+        if (st.msg === "data tidak ada") {
           return alert("pengguna tidak ada");
         }
-        if (st.msg == "password salah") {
+        if (st.msg === "password salah") {
           return alert("password salah");
         }
         sessionStorage.setItem("accessToken", st.accessToken);

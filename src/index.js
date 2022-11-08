@@ -6,12 +6,32 @@ import "./assets/css/main.css";
 import "animate.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import GamePage from "./components/Game/index";
+import Play from "./components/Game/Play";
+import "./assets/scss/styles.scss";
 
 AOS.init();
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/game-suit",
+    element: <GamePage />,
+  },
+  {
+    path: "/game-play",
+    element: <Play />,
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
