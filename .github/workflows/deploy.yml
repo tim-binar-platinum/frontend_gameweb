@@ -1,0 +1,26 @@
+name: remote ssh command
+on: 
+  push:
+    branches: [ main ]
+
+jobs:
+
+  job_one:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: executing remote ssh commands using password
+      uses: ./
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: 
+          whoami
+          cd challenge9
+          cd frontend_gameweb
+          git pull origin main
+          npm install
+          git status
