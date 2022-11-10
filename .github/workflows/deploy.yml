@@ -21,7 +21,7 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: 
-          cd challenge9/frontend_gameweb
-          git pull origin main
-          npm install
-          git status
+          cd challenge9/frontend_gameweb;
+          git pull origin main;
+          yarn;
+          git status;
