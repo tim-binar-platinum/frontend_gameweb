@@ -66,7 +66,7 @@ export default function Create () {
     return alert("mohon isi email");
   }
    console.log(formInput, dateData, genderData)
-   const response = await axios.post('http://localhost:4000/register', 
+   const response = await axios.post('http://103.181.143.76:4000/register', 
       {
         name: formInput.email,
         username: formInput.username,
