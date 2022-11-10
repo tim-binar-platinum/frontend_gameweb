@@ -56,6 +56,15 @@ export default function Create () {
 
   const onSubmit = async (e) => {
    e.preventDefault()
+   if (!formInput.username) {
+    return alert("mohon isi username");
+  }
+   if (!formInput.password) {
+    return alert("mohon isi password");
+  }
+  if (!formInput.email) {
+    return alert("mohon isi email");
+  }
    console.log(formInput, dateData, genderData)
    const response = await axios.post('http://localhost:4000/register', 
       {
@@ -67,7 +76,8 @@ export default function Create () {
         gender: 'male'
       })
       .then(function (response) {
-        console.log(response);
+        console.log(response)
+        return alert("akun berhasil dibuat");
       })
       .catch(function (error) {
         console.log(error);
@@ -125,21 +135,6 @@ export default function Create () {
             onChange={handleChange} 
             autoComplete="off"/>
               {errors.password && errors.password.message}
-              {formInput.password === formInput.confirm? <></> : <>password is not the same</>}
-          </FormGroup>
-          <FormGroup className="p-2">
-            <Label>Confirm Password</Label>
-            <Input
-            {...register('Confirm Password', {
-              required: 'This is required',
-            })}  
-            type='password' 
-            placeholder="confirm password" 
-            name="confirm_password" 
-            value={formInput.confirm} 
-            onChange={handleChange}  
-            autoComplete="off"
-            />
           </FormGroup>
           <FormGroup className="p-2">
             <Label>Gender</Label>
@@ -162,7 +157,7 @@ export default function Create () {
               selected={startDate} 
               onChange={(date) => setStartDate(date)} 
               customInput={<CustomInput />}
-              minDate={new Date()}/>
+              />
           </FormGroup>
           <FormGroup className="p-2">
             <Label>Birth Place</Label>

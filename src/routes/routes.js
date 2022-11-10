@@ -3,7 +3,7 @@ import App from "../App";
 import GamePage from "../components/Game/index";
 import Play from "../components/Game/Play";
 import Login from "../page/Login";
-import Register from "../page/Register";
+import Register from "../page/RegisterPage";
 import LandingPage from "../page/LandingPage";
 
 const Router = createBrowserRouter([
