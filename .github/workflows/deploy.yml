@@ -21,7 +21,6 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: 
-          whoami
           cd challenge9
           cd frontend_gameweb
           git pull origin main
