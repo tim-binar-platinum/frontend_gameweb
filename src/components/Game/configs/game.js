@@ -1,6 +1,6 @@
 export const settings = {
   gameName: "Suit Game",
-  userName: "Player 1",
+  userName: "User",
   botName: "Computer",
   winMessage: "You won!",
   tieMessage: "Draw!",
