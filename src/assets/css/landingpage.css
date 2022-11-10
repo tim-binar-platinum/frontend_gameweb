@@ -1,81 +1,86 @@
+.navbar-container {
+  background-color: rgba(8, 8, 8, 0.75);
+  height: 80px;
+}
+
 navbar h1 a {
-    text-decoration: none;
-    color: #2da0f8;
-    margin-left: 0vw;
+  text-decoration: none;
+  color: #2da0f8;
+  margin-left: 0vw;
 }
 
 navbar ul a {
-    list-style: none;
-    font-size: 1.7vw;
-    font-weight: bold;
-    color: #2da0f8;
-    text-decoration: none;
+  list-style: none;
+  font-size: 1.7vw;
+  font-weight: bold;
+  color: #2da0f8;
+  text-decoration: none;
 }
 
 aside p {
-    font-size: 2.2vw;
-    font-weight: 600;
-    padding-top: 5vw;
-    color: #2da0f8;
+  font-size: 2.2vw;
+  font-weight: 600;
+  padding-top: 5vw;
+  color: #2da0f8;
 }
 
 aside button {
-    font-size: 1.5vw;
+  font-size: 1.5vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  margin-left: 30%;
+  margin-top: 5vw;
+  width: 20vw;
+  background-color: #2da0f8;
+  color: white;
+  border-color: #2da0f8;
+  font-weight: 500;
+}
+
+#menubar-icon {
+  position: relative;
+  margin-top: -3%;
+  opacity: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+  #art-game {
+    opacity: 0;
+  }
+  aside p {
+    font-size: 6vw;
+    font-weight: 600;
+    padding-top: 5vw;
+    color: #2da0f8;
+  }
+  aside button {
+    font-size: 6vw;
     padding-left: 2vw;
     padding-right: 2vw;
     padding-top: 1vw;
     padding-bottom: 1vw;
     margin-left: 30%;
-    margin-top: 5vw;
-    width: 20vw;
+    margin-top: 15vw;
+    width: 40vw;
     background-color: #2da0f8;
     color: white;
     border-color: #2da0f8;
     font-weight: 500;
-}
-
-#menubar-icon {
+  }
+  #menu {
+    background-color: aqua;
     position: relative;
-    margin-top: -3%;
-    opacity: 0;
-}
-
-@media only screen and (max-width: 1000px) {
-    #art-game {
-        opacity: 0;
-    }
-    aside p {
-        font-size: 6vw;
-        font-weight: 600;
-        padding-top: 5vw;
-        color: #2da0f8;
-    }
-    aside button {
-        font-size: 6vw;
-        padding-left: 2vw;
-        padding-right: 2vw;
-        padding-top: 1vw;
-        padding-bottom: 1vw;
-        margin-left: 30%;
-        margin-top: 15vw;
-        width: 40vw;
-        background-color: #2da0f8;
-        color: white;
-        border-color: #2da0f8;
-        font-weight: 500;
-    }
-    #menu {
-        background-color: aqua;
-        position: relative;
-        top: 5vw;
-    }
-    navbar ul a {
-        font-size: 4vw;
-    }
-    navbar h1 a {
-        margin-left: 7vw;
-    }
-    #menubar-icon {
-        opacity: 1;
-    }
+    top: 5vw;
+  }
+  navbar ul a {
+    font-size: 4vw;
+  }
+  navbar h1 a {
+    margin-left: 7vw;
+  }
+  #menubar-icon {
+    opacity: 1;
+  }
 }

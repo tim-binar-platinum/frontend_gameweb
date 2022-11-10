@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import GamePage from "../components/Game/index";
-import Login from "../page/Login";
-import Register from "../page/Register";
-import LandingPage from "../page/LandingPage";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import LandingPage from "../pages/LandingPage";
+import Gallery from "../pages/Gallery";
 
 const Router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const Router = createBrowserRouter([
   {
     path: "/landing",
     element: <LandingPage />,
+  },
+  {
+    path: "/game-list",
+    element: <Gallery />,
   },
 ]);
 

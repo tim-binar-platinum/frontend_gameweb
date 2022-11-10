@@ -3,35 +3,13 @@ import React from "react";
 import "../assets/css/landingpage.css";
 import art from "../assets/image/landingpage-art.png";
 import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
+
 const LandingPage = () => {
   return (
     <div>
       <>
-        <navbar>
-          <div className="container pt-3">
-            <div className="row">
-              <div className="col col-md-12 col-lg-4 d-flex">
-                <img
-                  id="menubar-icon"
-                  src="menubar.svg"
-                  alt=""
-                  className="img-fluid"
-                />
-                <h1>
-                  <Link href="#">BINARGAME</Link>
-                </h1>
-              </div>
-              <div id="menu" className="col-8 text-uppercase pt-2 pl-5 pr-5">
-                <ul className="d-lg-flex d-md-block justify-content-between">
-                  <Link>about</Link>
-                  <Link>game list</Link>
-                  <Link to="/login">login</Link>
-                  <Link to="/register">register</Link>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </navbar>
+        <Navbar />
         <aside>
           <div className="container pt-5">
             <div className="row justify-content-between">
