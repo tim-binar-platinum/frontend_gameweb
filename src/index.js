@@ -8,7 +8,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { RouterProvider } from "react-router-dom";
 import Router from "./routes/routes";
-// import "./assets/scss/styles.scss";
 
 AOS.init();
 
