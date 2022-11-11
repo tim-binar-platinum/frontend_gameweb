@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import GamePage from "../components/Game/index";
-import Login from "../pages/Login";
-import Register from "../pages/Register";
+import Play from "../components/Game/Play";
+import Login from "../page/Login";
+import Register from "../page/RegisterPage";
 import LandingPage from "../pages/LandingPage";
 import Gallery from "../pages/Gallery";
 

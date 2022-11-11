@@ -9,7 +9,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     const data = {
-      email: email,
+      username: email,
       password: password,
     };
     fetch("http://103.181.143.76:4000/login", {
@@ -29,8 +29,9 @@ const Login = () => {
         if (st.msg === "password salah") {
           return alert("password salah");
         }
-        sessionStorage.setItem("accessToken", st.accessToken);
+        sessionStorage.setItem("accessToken", st.token);
         alert("login sukses");
+        console.log("token di session storage", sessionStorage.getItem("accessToken"))
       });
   };
   return (
@@ -46,7 +47,7 @@ const Login = () => {
                 {/* Email input */}
                 <Input
                   type={"text"}
-                  title={"email address"}
+                  title={"username"}
                   id={"email"}
                   set={(e) => setEmail(e.target.value)}
                 />
