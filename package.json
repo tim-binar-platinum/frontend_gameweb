@@ -29,7 +29,6 @@
     "eject": "react-scripts eject",
     "deploy": "serve -s build"
   },
-  "proxy": "https://pencarikhuntul.lol",
   "eslintConfig": {
     "extends": [
       "react-app",
