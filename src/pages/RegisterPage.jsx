@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 export default function Create () {
   const [formInput, setFormInput] = useState({
     email: '',
+    name: '',
     username: '',
     confirm: '',
     password: '',
@@ -56,6 +57,9 @@ export default function Create () {
 
   const onSubmit = async (e) => {
    e.preventDefault()
+   if (!formInput.name) {
+    return alert("mohon isi name lengkap");
+  }
    if (!formInput.username) {
     return alert("mohon isi username");
   }
@@ -66,9 +70,10 @@ export default function Create () {
     return alert("mohon isi email");
   }
    console.log(formInput, dateData, genderData)
-   const response = await axios.post('http://103.181.143.76:4000/register', 
+   const response = await axios.post('http://localhost:4000/register', 
       {
-        name: formInput.email,
+        email: formInput.email,
+        name: formInput.name,
         username: formInput.username,
         password: formInput.password,
         dateData: dateData.birth_date,
@@ -92,6 +97,20 @@ export default function Create () {
       <Container className="d-flex justify-content-center h1 pb-3">REGISTER NEW PLAYER</Container>
       <Container style={{maxWidth: "500px"}} className="bg-light border p-5">
         <Form onChange={handleChange}>
+        <FormGroup className="p-2">
+            <Label>Full name</Label>
+            <Input 
+            {...register('name', {
+              required: 'This is required',
+            })}
+            type='text' 
+            placeholder="full name" 
+            name="name" 
+            value={formInput.name} 
+            onChange={handleChange} 
+            />
+              {errors.email && errors.email.message}
+          </FormGroup>
           <FormGroup className="p-2">
             <Label>Email</Label>
             <Input 

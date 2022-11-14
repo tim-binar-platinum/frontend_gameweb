@@ -12,7 +12,7 @@ const Login = () => {
       username: email,
       password: password,
     };
-    fetch("http://103.181.143.76:4000/login", {
+    fetch("http://localhost:4000/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
