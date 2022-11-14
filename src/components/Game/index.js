@@ -56,7 +56,7 @@ export default function GameDetailPages() {
         ? setGame({
             ...(game.message = tieMessage),
             ...(await axios.post( 
-              'http://localhost:4000/game',
+              'http://103.181.143.76:4000/game',
               {status: 'tie'},
               config
             )),
@@ -68,7 +68,7 @@ export default function GameDetailPages() {
             ...(game.userScore += 1),
             ...(game.message = winMessage),
             ...(await axios.post( 
-              'http://localhost:4000/game',
+              'http://103.181.143.76:4000/game',
               {status: 'win'},
               config
             )),
@@ -77,7 +77,7 @@ export default function GameDetailPages() {
             ...(game.botScore += 1),
             ...(game.message = lostMessage),
             ...(await axios.post( 
-              'http://localhost:4000/game',
+              'http://103.181.143.76:4000/game',
               {status: 'lose'},
               config
             )),
