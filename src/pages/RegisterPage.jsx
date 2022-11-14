@@ -21,7 +21,7 @@ export default function Create () {
     }));
   };
 
-  const { register, formState: {errors}, handleSubmit } = useForm();
+  const { register, formState: {errors} } = useForm();
 
   const [gender, setGender] = useState('male')
   function handleSelect(e) {
@@ -70,7 +70,7 @@ export default function Create () {
     return alert("mohon isi email");
   }
    console.log(formInput, dateData, genderData)
-   const response = await axios.post('http://localhost:4000/register', 
+   const response = await axios.post('http://103.181.143.76:4000/register', 
       {
         email: formInput.email,
         name: formInput.name,
