@@ -23,10 +23,10 @@ const Login = () => {
       .then((res) => res.json())
       .then((st) => {
         console.log(st);
-        if (st.msg === "data tidak ada") {
+        if (st.message === "user not found") {
           return alert("pengguna tidak ada");
         }
-        if (st.msg === "password salah") {
+        if (st.message === "wrong password") {
           return alert("password salah");
         }
         sessionStorage.setItem("accessToken", st.token);

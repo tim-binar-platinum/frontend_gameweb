@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { redirect } from "react-router-dom";
 
 export default function Create () {
   const [formInput, setFormInput] = useState({
@@ -70,7 +71,7 @@ export default function Create () {
     return alert("mohon isi email");
   }
    console.log(formInput, dateData, genderData)
-   const response = await axios.post('https://api.thelastofgame.xyz/register', 
+   await axios.post('https://api.thelastofgame.xyz/register', 
       {
         email: formInput.email,
         name: formInput.name,
@@ -87,9 +88,6 @@ export default function Create () {
       .catch(function (error) {
         console.log(error);
       });
-    console.log(response.data.jwt)
-    localStorage.setItem('items', JSON.stringify(response.data.jwt));
-    localStorage.getItem('item')
   }
     
   return (
