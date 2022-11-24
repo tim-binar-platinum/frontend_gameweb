@@ -71,7 +71,7 @@ export default function Create () {
     return alert("mohon isi email");
   }
    console.log(formInput, dateData, genderData)
-   await axios.post('https://api.thelastofgame.xyz/register', 
+  await axios.post('http://localhost:4000/register', 
       {
         email: formInput.email,
         name: formInput.name,
@@ -82,11 +82,13 @@ export default function Create () {
         gender: 'male'
       })
       .then(function (response) {
-        console.log(response)
-        return alert("akun berhasil dibuat");
+        const res = response.json()
+        console.log(res.message)
+        return alert('akun telah dibuat')
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error.message);
+        return alert('username telah dipakai')
       });
   }
     
