@@ -68,7 +68,7 @@ export default function GameDetailPages() {
             ...(game.userScore += 1),
             ...(game.message = winMessage),
             ...(await axios.post( 
-              'http://103.181.143.76:4000/game',
+              'https://api.thelasofgame.xyz/game',
               {status: 'win'},
               config
             )),
@@ -77,7 +77,7 @@ export default function GameDetailPages() {
             ...(game.botScore += 1),
             ...(game.message = lostMessage),
             ...(await axios.post( 
-              'http://103.181.143.76:4000/game',
+              'https://api.thelastofgame.xyz/game',
               {status: 'lose'},
               config
             )),
