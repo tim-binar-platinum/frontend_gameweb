@@ -4,10 +4,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import { redirect } from "react-router-dom";
 
 export default function Create () {
   const [formInput, setFormInput] = useState({
     email: '',
+    name: '',
     username: '',
     confirm: '',
     password: '',
@@ -20,7 +22,7 @@ export default function Create () {
     }));
   };
 
-  const { register, formState: {errors}, handleSubmit } = useForm();
+  const { register, formState: {errors} } = useForm();
 
   const [gender, setGender] = useState('male')
   function handleSelect(e) {
@@ -56,6 +58,9 @@ export default function Create () {
 
   const onSubmit = async (e) => {
    e.preventDefault()
+   if (!formInput.name) {
+    return alert("mohon isi name lengkap");
+  }
    if (!formInput.username) {
     return alert("mohon isi username");
   }
@@ -66,9 +71,10 @@ export default function Create () {
     return alert("mohon isi email");
   }
    console.log(formInput, dateData, genderData)
-   const response = await axios.post('http://103.181.143.76:4000/register', 
+  await axios.post('http://localhost:4000/register', 
       {
-        name: formInput.email,
+        email: formInput.email,
+        name: formInput.name,
         username: formInput.username,
         password: formInput.password,
         dateData: dateData.birth_date,
@@ -76,15 +82,14 @@ export default function Create () {
         gender: 'male'
       })
       .then(function (response) {
-        console.log(response)
-        return alert("akun berhasil dibuat");
+        const res = response.json()
+        console.log(res.message)
+        return alert('akun telah dibuat')
       })
       .catch(function (error) {
-        console.log(error);
+        console.log(error.message);
+        return alert('username telah dipakai')
       });
-    console.log(response.data.jwt)
-    localStorage.setItem('items', JSON.stringify(response.data.jwt));
-    localStorage.getItem('item')
   }
     
   return (
@@ -92,6 +97,20 @@ export default function Create () {
       <Container className="d-flex justify-content-center h1 pb-3">REGISTER NEW PLAYER</Container>
       <Container style={{maxWidth: "500px"}} className="bg-light border p-5">
         <Form onChange={handleChange}>
+        <FormGroup className="p-2">
+            <Label>Full name</Label>
+            <Input 
+            {...register('name', {
+              required: 'This is required',
+            })}
+            type='text' 
+            placeholder="full name" 
+            name="name" 
+            value={formInput.name} 
+            onChange={handleChange} 
+            />
+              {errors.email && errors.email.message}
+          </FormGroup>
           <FormGroup className="p-2">
             <Label>Email</Label>
             <Input 

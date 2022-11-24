@@ -12,7 +12,7 @@ const Login = () => {
       username: email,
       password: password,
     };
-    fetch("http://103.181.143.76:4000/login", {
+    fetch("https://api.thelastofgame.xyz/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -23,10 +23,10 @@ const Login = () => {
       .then((res) => res.json())
       .then((st) => {
         console.log(st);
-        if (st.msg === "data tidak ada") {
+        if (st.message === "user not found") {
           return alert("pengguna tidak ada");
         }
-        if (st.msg === "password salah") {
+        if (st.message === "wrong password") {
           return alert("password salah");
         }
         sessionStorage.setItem("accessToken", st.token);
